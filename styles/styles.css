@@ -8,7 +8,7 @@
   width: 100%; /* Full width of the parent div */
   height: 200px; /* Fixed height for rectangle */
   border-radius: 10px; /* Slightly rounded corners for rectangle */
-  overflow: hidden; /* Ensures the image doesn’t overflow the container */
+  overflow: hidden; /* Ensures the image doesn't overflow the container */
   border: 4px solid #000000; /* Optional border */
   display: flex;
   justify-content: center;
@@ -279,68 +279,95 @@ section {
 }
 
 
-/*About*/
-.about-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+/*About*/.about-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
   padding-top: 3.5rem;
   padding-bottom: 5rem;
 }
+
+/* Updated right-about section */
 .about-container .right-about {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2rem;
-}
-.about-container .right-about .about-item {
-  border: 1px solid var(--color-grey-5);
-  border-radius: 5px;
-  transition: all 0.4s ease-in-out;
-  box-shadow: 1px 2px 15px rgba(0, 0, 0, 0.1);
-}
-.about-container .right-about .about-item:hover {
-  cursor: default;
-  transform: translateY(-5px);
-  border: 1px solid var(--color-secondary);
-  box-shadow: 1px 4px 15px rgba(0, 0, 0, 0.32);
-}
-.about-container .right-about .about-item .abt-text {
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem 0;
 }
-.about-container .right-about .about-item .abt-text .large-text {
-  font-size: 3rem;
-  font-weight: 700;
+
+/* Headings like Personal Info and Education */
+.right-about h4 {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
   color: var(--color-secondary);
+  font-weight: 700;
 }
-.about-container .right-about .about-item .abt-text .small-text {
-  padding-left: 3rem;
-  position: relative;
-  text-transform: uppercase;
-  font-size: 1.2rem;
+
+/* Unordered list styling */
+.right-about ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+/* List items */
+.right-about li {
+  font-size: 1.1rem;
   color: var(--color-grey-1);
-  letter-spacing: 2px;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
 }
-.about-container .right-about .about-item .abt-text .small-text::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 15px;
-  width: 2rem;
-  height: 2px;
-  background-color: var(--color-grey-5);
+
+/* Bolded labels (Name:, Age:, etc.) */
+.right-about li strong {
+  color: var(--color-white);
+  font-weight: 600;
 }
+
+/* Left-about section (unchanged, just cleaned) */
 .about-container .left-about {
   padding-right: 5rem;
 }
+
 .about-container .left-about p {
   line-height: 2rem;
-  padding: 1rem;
+  padding: 1rem 0;
   color: var(--color-grey-1);
 }
+
 .about-container .left-about h4 {
   font-size: 2rem;
   text-transform: uppercase;
+  color: var(--color-secondary);
+}
+.skills-section {
+  text-align: center;
+  padding: 3rem 2rem;
+ 
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff8c00; /* or var(--color-secondary) */
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6rem;
+}
+
+.skills-grid i {
+  font-size: 8rem;
+  transition: transform 0.3s ease;
+}
+
+.skills-grid i:hover {
+  transform: scale(1.2);
 }
 
 .about-stats {
@@ -419,6 +446,8 @@ section {
   transform: translateX(-50%);
 }
 
+
+
 /*Timeline*/
 .timeline {
   display: grid;
@@ -474,78 +503,6 @@ section {
   padding: 2rem 0;
   text-align: center;
 }
-/* 
-.portfolios {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 2rem;
-  margin-top: 3rem;
-}
-.portfolios .portfolio-item {
-  position: relative;
-  border-radius: 15px;
-}
-.portfolios .portfolio-item img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 15px;
-}
-.portfolios .portfolio-item .hover-items {
-  width: 100%;
-  height: 100%;
-  background-color: var(--color-secondary);
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  opacity: 0;
-  transform: scale(0);
-  transition: all 0.4s ease-in-out;
-}
-.portfolios .portfolio-item .hover-items h3 {
-  font-size: 1.5rem;
-  color: var(--color-white);
-  margin-bottom: 1.5rem;
-}
-.portfolios .portfolio-item .hover-items .icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.portfolios .portfolio-item .hover-items .icons .icon {
-  background-color: var(--color-primary);
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 1rem;
-  cursor: pointer;
-  transition: all 0.4s ease-in-out;
-}
-.portfolios .portfolio-item .hover-items .icons .icon i {
-  font-size: 1.5rem;
-  color: var(--color-white);
-  margin: 0 1rem;
-}
-.portfolios .portfolio-item .hover-items .icons .icon:hover {
-  background-color: var(--color-white);
-}
-.portfolios .portfolio-item .hover-items .icons .icon:hover i {
-  color: var(--color-primary);
-}
-
-.portfolio-item:hover .hover-items {
-  opacity: 1;
-  transform: scale(1);
-} */
- /* Portfolio Section */
  .portfolios {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
@@ -714,13 +671,13 @@ section {
 }
 .contact-icons a {
   color: white;
-  background-color: #555;
+  background-color: var(--color-secondary);
   padding: 0.8rem;
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
 .contact-icons a:hover {
-  background-color: #ff4b5c;
+  background-color: var(--color-grey-1);
 }
 
 .right-contact {
@@ -750,7 +707,7 @@ section {
   justify-content: flex-start;
 }
 .right-contact .submit-btn .btn {
-  background-color: #ff4b5c;
+  background-color:var(--color-secondary);
   color: white;
   padding: 0.8rem 2rem;
   border: none;
@@ -760,7 +717,7 @@ section {
   transition: background-color 0.3s ease;
 }
 .right-contact .submit-btn .btn:hover {
-  background-color: #ff6a7b;
+  background-color: var(--color-grey-2);
 }
 
 
@@ -1099,43 +1056,6 @@ section {
 
 /*# sourceMappingURL=styles.css.map */
 
-.about-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  color: white;
-}
-
-.left-about {
-  flex: 1;
-  min-width: 50%;
-}
-
-.right-about {
-  flex: 1;
-  min-width: 40%;
-  background:transparent; /* Dark background */
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.personal-info, .education {
-  background: transparent; /* Slightly lighter black */
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border-left: 5px solid #FF9800; /* Yellow border highlight */
-}
-
-h4 {
-  color: #FF9800; /* Yellow headings */
-}
-
-ul li {
-  list-style: none;
-  margin: 8px 0;
-}
-
 .main-btn {
   background: #FF9800; /* Yellow button */
   color: #111;
@@ -1217,4 +1137,18 @@ ul li {
 
 .certificates .certificate-details .cert-link:hover {
   background-color: #ff6b81;
+}
+
+/* Modern font weight and spacing */
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive improvements */
+@media (max-width: 900px) {
+  .container {
+    padding: 2rem 1rem;
+  }
 }
